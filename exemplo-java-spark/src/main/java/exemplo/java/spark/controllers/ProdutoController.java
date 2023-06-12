@@ -1,7 +1,7 @@
 package exemplo.java.spark.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import exemplo.java.spark.model.dto.input.ProdutoDTOInput;
+import exemplo.java.spark.dto.input.ProdutoDTOInput;
 import exemplo.java.spark.services.ProdutoService;
 import static spark.Spark.get;
 import static spark.Spark.post;

@@ -3,8 +3,8 @@ package exemplo.java.spark.services;
 
 import exemplo.java.spark.dao.GenericDao;
 import exemplo.java.spark.model.Produto;
-import exemplo.java.spark.model.dto.input.ProdutoDTOInput;
-import exemplo.java.spark.model.dto.output.ProdutoDTOOutput;
+import exemplo.java.spark.dto.input.ProdutoDTOInput;
+import exemplo.java.spark.dto.output.ProdutoDTOOutput;
 import java.util.Collection;
 import org.modelmapper.ModelMapper;
 

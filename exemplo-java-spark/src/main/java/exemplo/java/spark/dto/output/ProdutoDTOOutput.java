@@ -1,5 +1,5 @@
 
-package exemplo.java.spark.model.dto.input;
+package exemplo.java.spark.dto.output;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -8,11 +8,11 @@ import lombok.Setter;
  *
  * @author Pablo Rangel <pablo.rangel@gmail.com>
  * @date 11/06/2023
- * @brief  class ProdutoDTOInput
+ * @brief  class ProdutoDTOOutput
  */
 @Getter
 @Setter
-public class ProdutoDTOInput {
+public class ProdutoDTOOutput {
     private Long id;
-    private String nome; 
+    private String nome;
 }
