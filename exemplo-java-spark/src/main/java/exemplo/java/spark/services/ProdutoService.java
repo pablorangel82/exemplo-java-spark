@@ -6,7 +6,6 @@ import exemplo.java.spark.model.Produto;
 import exemplo.java.spark.model.dto.input.ProdutoDTOInput;
 import exemplo.java.spark.model.dto.output.ProdutoDTOOutput;
 import java.util.Collection;
-import javax.inject.Inject;
 import org.modelmapper.ModelMapper;
 
 /**
@@ -17,7 +16,6 @@ import org.modelmapper.ModelMapper;
  */
 public class ProdutoService {
     
-    @Inject
     private final GenericDao<Produto> produtoDAO = new GenericDao<Produto>(Produto.class);
     private final ModelMapper modelMapper = new ModelMapper();
     
@@ -29,10 +27,30 @@ public class ProdutoService {
         return listaProdutoDTOOutputs;
     } 
     
+    public ProdutoDTOOutput obterProduto(long id){
+        produtoDAO.begin();
+        ProdutoDTOOutput produtoDTOOutput =  modelMapper.map(produtoDAO.findById(id), ProdutoDTOOutput.class);
+        produtoDAO.end();
+        return produtoDTOOutput;
+    }
+    
     public void adicionarProduto(ProdutoDTOInput produtoDTOInput){
         Produto produto = modelMapper.map(produtoDTOInput, Produto.class);
         produtoDAO.begin();
         produtoDAO.create(produto);
+        produtoDAO.end();
+    }
+    
+    public void alterarProduto(ProdutoDTOInput produtoDTOInput){
+        Produto produto = modelMapper.map(produtoDTOInput, Produto.class);
+        produtoDAO.begin();
+        produtoDAO.update(produto);
+        produtoDAO.end();
+    }
+    
+    public void removerProduto(long id){
+        produtoDAO.begin();
+        produtoDAO.delete(id);
         produtoDAO.end();
     }
 }

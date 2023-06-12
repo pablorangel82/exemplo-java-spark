@@ -49,7 +49,7 @@ public class GenericDao<E> {
         em.merge(entity);
     }
 
-    public GenericDao<E> delete(int id) {
+    public GenericDao<E> delete(long id) {
         GenericDao<E> dao = new GenericDao<E>(type);
         E entidade = dao.findById(id);
         em.remove(em.contains(entidade) ? entidade : em.merge(entidade));
